@@ -1,0 +1,8 @@
+<p>Create Hotels</p>
+
+<h2>Hotels:</h2>
+<%= @param %>
+
+<% @hotels.each_with_index do |hotel, index| %>
+	<p><a href=<%= "/v2/hotels/#{hotel.id}" %>><%= "#{index+1}. #{hotel.name}" %></p>
+<% end %>

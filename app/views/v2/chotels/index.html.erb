@@ -1,0 +1,13 @@
+<% if @userNow == 1 %>
+<%= link_to "Create Hotel", "/v2/chotels/new" %>
+<% @chotels.each do |h| %>
+    <p> ID : <%= h.id %> <br> </p>
+    <p>Name :  <%= h.name %> <br> </p>
+    <p>Package : <%= Package.find_by_id(h.package_id).name %> </p><br> 
+    <%= link_to "EDIT", "/v2/chotels/#{h.id}/edit" %> 
+    <%= link_to "Delete File", "/v2/chotels/#{h.id}", method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
+    
+<% else %>
+
+<% end %>

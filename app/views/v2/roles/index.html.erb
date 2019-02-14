@@ -1,0 +1,10 @@
+
+<p><a href=<%= "/v2/hotels/#{@hotel_id}/roles/new" %>>Create Role</p></a>
+<p>ROLES LIST : </p>
+<% @roles.each_with_index do |role, index| %>
+      <p><a href=<%= "/v2/hotels/#{@hotel_id}/roles/#{role.id}" %>><%= "#{index+1}. #{role.name}" %></p></a>
+      <%= link_to "Delete File", "/v2/hotels/#{@hotel_id}/roles/#{role.id}", method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
+
+
+ 

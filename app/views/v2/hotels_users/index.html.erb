@@ -1,0 +1,14 @@
+
+<p><a href=<%= "/v2/hotels_users/new" %>>Create HOTEL USER</p>
+</a>
+<p>HOTELS_USERS LIST : </p>
+<% @hotelsusers.select(:email).uniq.each do |hu| %>
+      <p> email :   <%= hu.email %></p>
+      <p> HOTEL(s) NAME : </p> 
+      <% @hotelsusers.where(id: hu.user_id).each  do |h| %>  
+            <%= h.name %>
+            <%= link_to "--Delete", "/v2/hotels_users/#{HotelsUser.where(hotel_id: h.hotel_id).all.where(user_id: h.user_id).first.id}", method: :delete, data: {confirm: "Are you sure?"} %> <br>
+      <% end %>
+      <br>
+<% end %>
+ 

@@ -1,0 +1,23 @@
+
+
+
+
+<%
+  # this is called by the index method in 
+  # the hotels controller
+%>
+
+<h3>Hotels Management Home Page</h3>
+<%= link_to "Home", "/" %>
+<%= link_to "Add New HOTEL", new_hotel_path %>
+<br/>
+
+
+<% @hotels.each do |hotel| %>
+  <h3>name : <%= hotel.name %></h3>
+  <h3>package : <%= Package.find(hotel.package_id).name %></h3>
+
+  <br>
+  <%= link_to "Read More", hotel %>
+ 
+<% end %>

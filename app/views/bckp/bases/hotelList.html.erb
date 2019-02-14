@@ -1,0 +1,42 @@
+
+<ul>
+<% if user_signed_in? %>
+<li>
+<%= link_to "Sign Out" , destroy_user_session_path, method: :delete %>
+</li>
+<br>
+<li>
+YOUR EMAIL : 
+<%= current_user.email %>
+</li>
+<li>
+USERNAME : 
+<%=  current_user.username %>
+</li>
+<li>
+ROLE : 
+<%= Role.find(current_user.role_id).name %>
+</li>
+<li>
+NAME : 
+<%= current_user.name %>
+</li>
+<li>
+<%= link_to "Edit Account" , edit_user_registration_path %>
+</li>
+<% @hotel.each do |hotel| %>
+    <tr>
+      <td><%= hotel.hotel_id %><br></td>
+      <td> </td>
+    </tr>
+  <% end %>
+<% else %>
+<li>
+<%= link_to "USER SIGN IN", new_user_session_path %>
+</li>
+<li>
+<%= link_to "CREATE NEW USER" , new_user_registration_path %>
+</li>
+<% end %>
+</ul>
+

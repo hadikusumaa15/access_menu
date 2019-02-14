@@ -1,0 +1,16 @@
+<h3>Show Webreq Page</h3>
+
+<h3><%= @webreq.url %></h3>
+<%= link_to "Edit Webreq Details", edit_webreq_path(@webreq) %>
+<br/>
+<%= link_to "Delete Webreq", webreq_path(@webreq), method: :delete, data: {confirm: "Are you sure?"} %>
+
+<p>
+  <strong>URL:</strong>
+  <%= @webreq.url %>
+</p>
+
+<p>
+  <strong>File Size:</strong>
+  <%= number_to_human_size(@webreq.content_length) %>
+</p>

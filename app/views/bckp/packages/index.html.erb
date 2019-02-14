@@ -1,0 +1,22 @@
+<h3>Listings Page</h3>
+
+
+
+<%
+  # this is called by the indexp method in 
+  # the packages controller
+%>
+
+
+<h3>Packages Home Page</h3>
+<%= link_to "Home", "/" %>
+<br/>
+<%= link_to "Add New Package", new_package_path %>
+
+
+<% @packages.each do |package| %>
+  <h3><%= package.name %></h3>
+
+  <br>
+  <%= link_to "Read More", package %>
+<% end %>

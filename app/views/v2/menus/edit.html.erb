@@ -1,0 +1,5 @@
+<p> EDIT Menu </p>
+<%= form_for @menu, url: "/v2/menus/#{@id}", html: {method: :put} do |c| %>
+    <%= c.text_field :name %> <br>
+    <%= c.submit %>
+<% end %>

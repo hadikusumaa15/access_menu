@@ -1,0 +1,10 @@
+
+<p><a href=<%= "/v2/hotels/#{@param}/menus_roles/new" %>>Create Role</p></a>
+<p>MENUSROLES LIST : </p>
+<% @menus_roles.each_with_index do |menus_role, index| %>
+    <p><a href=<%= "/v2/hotels/#{@param}/roles/#{@paramr}/menus_roles/#{menus_role.menu_id}" %>><%= "#{index+1}. #{Menu.find_by_id(menus_role.menu_id).name}" %></p></a>
+  <%= link_to "Delete File", "/v2/hotels/#{@param}/menus_role/#{menus_role.id}", method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
+
+
+ 

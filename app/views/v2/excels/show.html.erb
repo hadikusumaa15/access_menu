@@ -1,0 +1,9 @@
+<p>ROLE <%= @role.name %></p>
+<p> <%= link_to "edit menus", "/v2/hotels/#{@hotel_id}/roles/#{@id}/edit" %></p>
+<p>MENUSROLE ID : <% @menu_id.all.each do |m| %></p>
+    <%= m.menu_id %>
+<% end %>
+
+<p>MENUSROLE NAME : <% @menu.each do |m| %></p>
+    <%= m.name %>
+<% end %>

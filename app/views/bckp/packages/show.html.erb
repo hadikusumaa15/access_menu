@@ -1,0 +1,7 @@
+<h3>Show Package Page</h3>
+<%= link_to "Home", "/indexp" %>
+<h3><%= @package.name %></h3>
+
+<%= link_to "Edit Package Details", edit_package_path(@package) %>
+<br/>
+<%= link_to "Delete Package", package_path(@package), method: :delete, data: {confirm: "Are you sure?"} %>

@@ -1,0 +1,8 @@
+<h3>Show MenusRole Page</h3>
+<%= link_to "Home", "/indexmr" %>
+<h3><%= Menu.find(@menus_role.menu_id).name %></h3>
+<h3><%= Role.find(@menus_role.role_id).name %></h3>
+
+<%= link_to "Edit MenusRole Details", edit_menus_role_path(@menus_role) %>
+<br/>
+<%= link_to "Delete MenusRole", menus_role_path(@menus_role), method: :delete, data: {confirm: "Are you sure?"} %>

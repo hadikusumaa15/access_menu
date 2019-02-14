@@ -1,0 +1,5 @@
+<p> CREATE NEW Menu </p>
+<%= form_for @menu, url: "/v2/menus/", html: {method: :post} do |c| %>
+    <%= c.text_field :name %> <br>
+    <%= c.submit %>
+<% end %>

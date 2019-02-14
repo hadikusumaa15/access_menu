@@ -1,0 +1,24 @@
+
+
+
+
+<%
+  # this is called by the index method in 
+  # the hotels_users controller
+%>
+
+
+<h3>UsersHotels Management Home Page</h3>
+<%= link_to "Home", "/" %>
+<%= link_to "Add New Hotel", new_hotels_user_path %>
+<br/>
+
+
+<% @hotels_users.each do |hotels_user| %>
+  <h3>user : <%= User.find(hotels_user.user_id).email %></h3>
+  <h3>hotel : <%= Hotel.find(hotels_user.hotel_id).name %></h3>
+
+  <br>
+  <%= link_to "Read More", hotels_user %>
+ 
+<% end %>

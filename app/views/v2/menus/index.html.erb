@@ -1,0 +1,11 @@
+
+<p><%= flash[:success] %></p>
+<p><a href=<%= "/v2/menus/new" %>>Create Menu</p></a>
+<p>MENUS LIST : </p>
+<% @menus.each_with_index do |menu, index| %>
+      <p><a href=<%= "/v2/menus/#{menu.id}" %>><%= "#{index+1}. #{menu.name}" %></p></a>
+      <%= link_to "Delete File", "/v2/menus/#{menu.id}", method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
+
+
+ 

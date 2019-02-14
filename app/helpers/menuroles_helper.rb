@@ -1,0 +1,2 @@
+module MenurolesHelper
+end

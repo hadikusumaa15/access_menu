@@ -1,0 +1,8 @@
+<h3>Show User Page</h3>
+<%= link_to "Home", "/indexur" %>
+<h3><%= @user.email %></h3>
+<h3><%= Role.find(@user.role_id).name %></h3>
+
+<%= link_to "Edit User Details", edit_user_path(@user) %>
+<br/>
+<%= link_to "Delete User", user_path(@user), method: :delete, data: {confirm: "Are you sure?"} %>

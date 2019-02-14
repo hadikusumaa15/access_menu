@@ -1,0 +1,26 @@
+
+<p><a href="/v2/hotels">HOTEL LIST</a></p>
+
+<% if @current_user.admin_type == 1 %>	
+	<p><a href="/v2/packages">PACKAGES LIST</a></p>
+	<p><a href= "/v2/chotels">CREATE HOTELS</a></p>
+	<p><a href= "/v2/menus">CREATE MENUS</a></p>
+	<p><a href= "/v2/hotels_users">CREATE hotels_users</a></p>
+	<p><a href= "/v2/excels">Open Excel File</a></p>
+	<p><a href= "/v2/excels.csv">Download Excel File</a></p>
+
+
+	
+<% end %>
+
+<ul>
+<% if user_signed_in? %>
+	<li>
+	<%= link_to "Sign Out" , destroy_user_session_path, method: :delete %>
+	</li>
+<% else %>
+	<li>
+	<%= link_to "USER SIGN IN", new_user_session_path %>
+	</li>
+<% end %>
+</ul>

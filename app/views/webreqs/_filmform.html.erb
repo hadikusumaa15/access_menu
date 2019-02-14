@@ -1,0 +1,15 @@
+<%
+  # form_for is a rails helper for rendering forms in the view  
+  # @film is an instance scoped variable that is declared in 
+  # films_controller new method. It points to a new
+  # instance of the Film model
+  # f.submit will need a create action
+%>
+
+
+<%= form_for @webreq do |f| %>
+  <%= f.label :url %><br>
+  <%= f.text_field :url %><br>
+  <br>
+  <%= f.submit %>
+<% end %>

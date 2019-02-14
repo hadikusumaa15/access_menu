@@ -1,0 +1,6 @@
+<p> CREATE NEW HOTEL_USER </p>
+<%= form_for @hotels_user, url: "/v2/hotels_users", html: {method: :post} do |c| %>
+    <%= c.select :hotel_id,  options_from_collection_for_select(Hotel.all, :id, :name) %> <br>
+    <%= c.select :user_id,  options_from_collection_for_select(User.all, :id, :email) %> <br>
+    <%= c.submit %>
+<% end %>

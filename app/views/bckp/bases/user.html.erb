@@ -1,0 +1,43 @@
+
+<ul>
+<% if user_signed_in? %>
+<li>
+<%= link_to "Sign Out" , destroy_user_session_path, method: :delete %>
+</li>
+<% if params[:notice].present? %>
+    alert(<%= params[:notice] %>);
+  <% end %>
+<p><a href="/indexr">CREATE ROLES</a></p>
+<p><a href="/indexur">EDIT USERS ROLES</a></p>
+<p><a href="/indexmr">EDIT ROLES MENUS</a></p>
+<br>
+<li>
+YOUR EMAIL : 
+<%= current_user.email %>
+</li>
+<li>
+USERNAME : 
+<%=  current_user.username %>
+</li>
+<li>
+ROLE : 
+<%= Role.find(current_user.role_id).name %>
+</li>
+<li>
+NAME : 
+<%= current_user.name %>
+</li>
+<li>
+<%= link_to "Edit Account" , edit_user_registration_path %>
+</li>
+
+<% else %>
+<li>
+<%= link_to "USER SIGN IN", new_user_session_path %>
+</li>
+<li>
+<%= link_to "CREATE NEW USER" , new_user_registration_path %>
+</li>
+<% end %>
+</ul>
+

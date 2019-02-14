@@ -1,0 +1,17 @@
+
+<p> hotel id = <%= @hotel_id %> </p>
+<p> your max user : <%= @package %> </p>
+<% if @hotel_users.length < @package %>
+<p><%= link_to "Create USERS", "/v2/hotels/#{@hotel_id}/users/sign_up" %></p>
+<%  else %>
+<p> WARNING ! <br> USER MAXED OUT, cannot create more USER </p>
+<% end %>
+
+<p>List of users:</p>
+<ul>
+	<% @hotel_users.each do |user| %>
+		<li><%= user.email %> <%= link_to "edit", "/v2/hotels/#{@hotel_id}/users/#{user.id}/edit" %></li>
+		<%= Role.where(id: user.role_id).first.name %>
+		<%= link_to "Delete File", "/v2/hotels/#{@hotel_id}/users/#{user.id}", method: :delete, data: {confirm: "Are you sure?"} %>
+    <% end %>
+</ul>

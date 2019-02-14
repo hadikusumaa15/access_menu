@@ -1,0 +1,10 @@
+<p> CREATE NEW ROLE </p>
+<%= form_for @role, url: "/v2/hotels/#{@hotel_id}/roles", html: {method: :post} do |c| %>
+    <%= c.text_field :name %> <br>
+    <%= c.select :hotel_id,  options_from_collection_for_select(Hotel.where(id: @hotel_id), :id, :name) %> <br>
+    <% @menu.each do |menu| %>
+        <input id=<%="#{menu.id}"%> name=<%="menu[#{menu.name}]"%> type="checkbox" value=<%="#{menu.id}"%> checked />
+        <label for=<%="#{menu.id}"%>><%="#{menu.name}"%></label>
+    <% end %>
+    <%= c.submit %>
+<% end %>

@@ -1,0 +1,17 @@
+<p><a href="/v1/hotels">HOTEL LIST</a></p>
+
+<% if @user.admin_type == 1 %>	
+	<p><a href="">PACKAGES LIST</a></p>
+<% end %>
+
+<ul>
+<% if user_signed_in? %>
+	<li>
+	<%= link_to "Sign Out" , destroy_user_session_path, method: :delete %>
+	</li>
+<% else %>
+	<li>
+	<%= link_to "USER SIGN IN", new_user_session_path %>
+	</li>
+<% end %>
+</ul>

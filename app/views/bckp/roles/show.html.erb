@@ -1,0 +1,8 @@
+<h3>Show Role Page</h3>
+<%= link_to "Home", "/indexr" %>
+<h3><%= @role.name %></h3>
+<%= @role.created_at %>
+
+<%= link_to "Edit Role Details", edit_role_path(@role) %>
+<br/>
+<%= link_to "Delete Role", role_path(@role), method: :delete, data: {confirm: "Are you sure?"} %>

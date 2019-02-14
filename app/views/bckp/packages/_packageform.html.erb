@@ -1,0 +1,16 @@
+<%
+  # form_for is a rails helper for rendering forms in the view  
+  # @package is an instance scoped variable that is declared in 
+  # packages_controller new method. It points to a new
+  # instance of the Film model
+  # f.submit will need a create action
+%>
+
+<%= link_to "Home", "/indexp" %>
+<% # pulls in a partial from _form.html.erb %>
+<%= form_for @package do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <br>
+  <%= f.submit %>
+<% end %>

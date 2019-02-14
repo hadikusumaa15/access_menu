@@ -1,0 +1,18 @@
+<%
+  # form_for is a rails helper for rendering forms in the view  
+  # @hotels_user is an instance scoped variable that is declared in 
+  # hotels_users_controller new method. It points to a new
+  # instance of the Film model
+  # f.submit will need a create action
+%>
+
+
+<%= form_for @hotels_user do |f| %>
+  <%= f.label :user_id %><br>
+  <%= f.select :user_id, options_from_collection_for_select(User.all, :id, :email) %><br>
+  <br>
+  <%= f.label :hotel_id%><i> (pilih hotel)</i> </br>
+  <%= f.select :hotel_id, options_from_collection_for_select(Hotel.all, :id, :name) %>
+  <br>
+  <%= f.submit %>
+<% end %>

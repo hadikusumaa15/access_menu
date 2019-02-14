@@ -1,0 +1,12 @@
+<% if @userNow == 1 %>
+<%= link_to "Create Package", "/v2/packages/new" %>
+<% @packages.each do |h| %>
+    <p> ID : <%= h.id %> <br> Name :  <%= h.name %>
+    <p> MENU(s) : <% @menus_packages.each do |x| %> <% if x.package_id == h.id %> <br> <%=  x.name  %>  <%end%> <% end %> </p>
+    <br> <%= link_to "EDIT", "/v2/packages/#{h.id}/edit" %> 
+    <%= link_to "Delete File", "/v2/packages/#{h.id}", method: :delete, data: {confirm: "Are you sure?"} %>
+<% end %>
+    
+<% else %>
+
+<% end %>

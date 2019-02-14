@@ -1,0 +1,14 @@
+<p> EDIT ROLE </p>
+<%= form_for @role, url: "/v2/hotels/#{@hotel_id}/roles/#{@id}", html: {method: :put} do |c| %>
+    <%= c.text_field :name %> <br>
+    <%= c.select :hotel_id,  options_from_collection_for_select(Hotel.where(id: @hotel_id), :id, :name) %> <br>
+    <% @menu.each do |menu| %>
+        <% if @menus_role.include? menu.id %>
+        <input checked id=<%="#{menu.id}"%> name=<%="menu[#{menu.name}]"%> type="checkbox" value=<%="#{menu.id}"%>  />
+        <% else %>
+        <input  id=<%="#{menu.id}"%> name=<%="menu[#{menu.name}]"%> type="checkbox" value=<%="#{menu.id}"%>  />
+        <% end %>
+        <label for=<%="#{menu.id}"%>><%="#{menu.name}"%></label>
+    <% end %>
+    <%= c.submit %>
+<% end %>

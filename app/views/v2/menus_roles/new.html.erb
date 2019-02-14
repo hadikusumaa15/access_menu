@@ -1,0 +1,6 @@
+<p> CREATE NEW ROLE </p>
+<%= form_for @menus_role, url: "/v2/hotels/#{@param}/menus_roles", html: {method: :post} do |c| %>
+        <%= c.text_field :name %> <br>
+        <%= c.select :hotel_id,  options_from_collection_for_select(Hotel.where(id: @param), :id, :name) %> <br>
+        <%= c.submit %>
+    <% end %>

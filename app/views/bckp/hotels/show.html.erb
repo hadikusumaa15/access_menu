@@ -1,0 +1,13 @@
+<h3>Show Hotel Page</h3>
+<%= link_to "Home", "/indexh" %>
+<h3><%= @hotel.name %></h3>
+<h3><%= Package.find(@hotel.package_id).name %></h3>
+
+<p>
+  <b>Updated at:</b>
+  <%= @hotel.updated_at %>
+</p>
+
+<%= link_to "Edit Hotel Details", edit_hotel_path(@hotel) %>
+<br/>
+<%= link_to "Delete Hotel", hotel_path(@hotel), method: :delete, data: {confirm: "Are you sure?"} %>

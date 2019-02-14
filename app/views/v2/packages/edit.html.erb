@@ -1,0 +1,13 @@
+<% if @userNow == 1 %>
+    <%= form_for @package, url: "/v2/packages/#{params[:id]}", html: {method: :put} do |c| %>
+        <%= c.text_field :name %> <br>
+        <%= c.label :maxuser %><br>
+        <%= c.number_field :maxuser %> <br>
+        <% Menu.all.each do |menu| %>
+            <input id=<%="#{menu.id}"%> name=<%="menu[#{menu.name}]"%> type="checkbox" value=<%="#{p menu.id}"%> />
+            <label for=<%="#{menu.id}"%>><%="#{menu.name}"%></label>
+            <br>
+        <% end %>
+        <%= c.submit %>
+    <% end %>
+<% end %>

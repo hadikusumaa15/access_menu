@@ -1,0 +1,180 @@
+
+<ul>
+<% if user_signed_in? %>
+<li>
+<%= link_to "Sign Out" , destroy_user_session_path, method: :delete %>
+</li>
+<p><a href="/bases/superhome">HOME</a></p>
+<% if params[:notice].present? %>
+    alert(<%= params[:notice] %>);
+  <% end %>
+<p><a href="/indexr">CREATE ROLES</a></p>
+<p><a href="/indexur">EDIT USERS ROLES</a></p>
+<p><a href="/indexmr">EDIT ROLES MENUS</a></p>
+<p><a href="/indexh">EDIT HOTELS PACKAGES</a></p>
+<p><a href="/indexp">EDIT PACKAGES</a></p>
+<p><a href="/indexhu">EDIT HOTELUSER</a></p>
+<br>
+<li>
+YOUR EMAIL : 
+<%= current_user.email %>
+</li>
+<li>
+USERNAME : 
+<%=  current_user.username %>
+</li>
+<li>
+ROLE : 
+<%= Role.find(current_user.role_id).name %>
+</li>
+<li>
+NAME : 
+<%= current_user.name %>
+</li>
+<li>
+<%= link_to "Edit Account" , edit_user_registration_path %>
+</li>
+<table>
+  <tr>
+  <th>Name</th>
+  <th>ID</th>
+  </tr>
+
+ 
+  <tr>
+  <td>  =================  </td>
+</tr>
+<tr>
+  <td>  PACKAGES   </td>
+</tr>
+  
+  <% @packages.to_a.length.times do |i| %>
+    <tr>
+      <td><%= @packages.to_a[i].name%></td>
+      <td><%= @packages.to_a[i].id %></td>
+      <td> </td>
+    </tr>
+    
+  <% end %>
+
+
+  <tr>
+  <td>  =================  </td>
+</tr>
+<tr>
+  <td> HOTELS    </td>
+</tr>
+  
+  <% @hotels.each do |hotel| %>
+    <tr>
+      <td><%= hotel.name%></td>
+      <td><%= hotel.id %></td>
+      <td> </td>
+    </tr>
+  <% end %>
+
+
+  <tr>
+  <td>  =================  </td>
+</tr>
+<tr>
+  <td>  ADMINS    </td>
+</tr>
+
+  <% @admins.each do |admin| %>
+    <tr>
+      <td><%= admin.name%></td>
+      <td><%= admin.id %></td>
+      <td> </td>
+    </tr>
+  <% end %>
+
+
+  <tr>
+  <td>  =================  </td>
+</tr>
+<tr>
+  <td>  ADMINS HOTELS    </td>
+</tr>
+  
+  <% @adminsHotels.each do |adminsHotel| %>
+    <tr>
+      <td>ADMIN ID : <%= adminsHotel.admin_id%></td>
+      <td>HOTEL ID : <%= adminsHotel.hotel_id %></td>
+      <td> </td>
+    </tr>
+  <% end %>
+
+
+  <tr>
+  <td>  =================  </td>
+</tr>
+<tr>
+  <td>  MENUS   </td>
+</tr>
+
+  <% @menus.each do |menu| %>
+    <tr>
+      <td><%= menu.name %></td>
+      <td><%= menu.id %></td>
+      <td> </td>
+    </tr>
+  <% end %>
+
+  <tr>
+  <td>  =================  </td>
+</tr>
+<tr>
+  <td>  MENUS ROLES   </td>
+</tr>
+
+  <% @menusRoles.each do |menusRole| %>
+    <tr>
+      <td>MENU ID : <%= menusRole.menu_id %></td>
+      <td>ROLE ID  : <%= menusRole.role_id %></td>
+      <td> </td>
+    </tr>
+  <% end %>
+
+<tr><td>  =================  </td></tr>
+<tr><td>  ROLES    </td></tr>
+
+  <% @roles.each do |role| %>
+    <tr>
+      <td><%= role.name%></td>
+      <td><%= role.id %></td>
+    </tr>
+  <% end %>
+        <tr><td>  =================  </td></tr>
+    <tr><td>  PACKAGES HOTELS    </td></tr>
+
+  <% @packagesHotels.each do |packagesHotel| %>
+    <tr>
+      <td>PACKAGE ID : <%= packagesHotel.package_id %></td>
+      <td>HOTEL ID : <%= packagesHotel.hotel_id %></td>
+      <td></td>
+    </tr>
+    <% end %>
+    <tr><td>  =================  </td></tr>
+    <tr><td>  USERS  </td></tr>
+
+  <% @users.each do |user| %>
+    <tr>
+      <td>ROLE ID : <%= user.role_id %></td>
+      <td>EMAIL : <%= user.email %></td>
+      <td></td>
+    </tr>
+  <% end %>
+
+</table>
+
+<% else %>
+<li>
+<%= link_to "USER SIGN IN", new_user_session_path %>
+</li>
+<li>
+<%= link_to "CREATE NEW USER" , new_user_registration_path %>
+</li>
+<% end %>
+</ul>
+

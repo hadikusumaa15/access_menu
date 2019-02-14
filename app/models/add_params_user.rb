@@ -1,0 +1,2 @@
+class AddParamsUser < ApplicationRecord
+end

@@ -1,0 +1,22 @@
+<h3>Listings Page</h3>
+
+
+
+<%
+  # this is called by the indexr method in 
+  # the roles controller
+%>
+
+
+<h3>Roles Home Page</h3>
+<%= link_to "Home", "/" %>
+<br/>
+<%= link_to "Add New Role", new_role_path %>
+
+
+<% @roles.each do |role| %>
+  <h3><%= role.name %></h3>
+
+  <br>
+  <%= link_to "Read More", role %>
+<% end %>

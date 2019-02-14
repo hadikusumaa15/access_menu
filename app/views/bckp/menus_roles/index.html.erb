@@ -1,0 +1,24 @@
+
+
+
+
+<%
+  # this is called by the index method in 
+  # the menus_roles controller
+%>
+
+
+<h3>MenusRoles Management Home Page</h3>
+<%= link_to "Home", "/" %>
+<%= link_to "Add New Role", new_menus_role_path %>
+<br/>
+
+
+<% @menus_roles.each do |menus_role| %>
+  <h3>menu : <%= Menu.find(menus_role.menu_id).name %></h3>
+  <h3>role : <%= Role.find(menus_role.role_id).name %></h3>
+
+  <br>
+  <%= link_to "Read More", menus_role %>
+ 
+<% end %>

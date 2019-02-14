@@ -1,0 +1,18 @@
+<%
+  # form_for is a rails helper for rendering forms in the view  
+  # @menus_role is an instance scoped variable that is declared in 
+  # menus_roles_controller new method. It points to a new
+  # instance of the Film model
+  # f.submit will need a create action
+%>
+
+
+<%= form_for @menus_role do |f| %>
+  <%= f.label :menu_id %><br>
+  <%= f.select :menu_id, options_from_collection_for_select(Menu.all, :id, :name) %><br>
+  <br>
+  <%= f.label :role_id, 'Role'%><i> (pilih role)</i> </br>
+  <%= f.select :role_id, options_from_collection_for_select(Role.all, :id, :name) %>
+  <br>
+  <%= f.submit %>
+<% end %>

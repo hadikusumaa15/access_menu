@@ -1,0 +1,7 @@
+<% if @userNow == 1 %>
+    <%= form_for @chotel, url: "/v2/chotels/#{params[:id]}", html: {method: :put} do |c| %>
+        <%= c.text_field :name %> <br>
+        <%= c.select :package_id,  options_from_collection_for_select(Package.all, :id, :name) %> <br>
+        <%= c.submit %>
+    <% end %>
+<% end %>

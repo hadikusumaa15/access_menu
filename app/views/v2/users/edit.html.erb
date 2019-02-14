@@ -1,0 +1,23 @@
+FORM
+
+edit.html.erb
+
+<h3>Edit Page</h3>
+<%= link_to "Home", "/" %>
+<% # pulls in a partial from _form.html.erb %>
+
+<%= @hotel_id %>
+<%= @hotel_user.id %>
+
+<%= form_for @hotel_user, url: "/v2/hotels/#{@hotel_id}/users/#{@hotel_user.id}", html: { method: :put } do |p| %>
+    
+  <%= p.label :email %><br>
+  <%= p.text_field :email %><br>
+  <br>
+  <%= p.label :role_id, 'Role'%><i> (pilih role)</i> </br>
+  <%= p.select :role_id, options_from_collection_for_select(Role.where(hotel_id: @hotel_id), :id, :name) %>
+  <br>
+  <%= p.submit %>
+<% end %>
+
+ 

@@ -1,0 +1,23 @@
+
+
+
+
+<%
+  # this is called by the index method in 
+  # the users controller
+%>
+
+
+<h3>Users Management Home Page</h3>
+<%= link_to "Home", "/" %>
+<br/>
+
+
+<% @users.each do |user| %>
+  <h3>email : <%= user.email %></h3>
+  <h3>role : <%= Role.find(user.role_id).name %></h3>
+
+  <br>
+  <%= link_to "Read More", user %>
+ 
+<% end %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admin: one
+  hotel: one
+  user: one
+  role: one
+  package: one
+
+two:
+  admin: two
+  hotel: two
+  user: two
+  role: two
+  package: two

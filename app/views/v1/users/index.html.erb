@@ -1,0 +1,8 @@
+<p><%= link_to "Create", "/v1/hotels/#{@hotel_id}/users/new" %></p>
+
+<p>List of users:</p>
+<ul>
+	<% @hotel_users.each do |user| %>
+    	<li><%= user.email %> <%= link_to "edit", "/v1/hotels/#{@hotel_id}/users/#{user.id}/edit" %></li>
+    <% end %>
+</ul>
